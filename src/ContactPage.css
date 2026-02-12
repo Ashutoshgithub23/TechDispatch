@@ -1,0 +1,218 @@
+/* --- Page Layout --- */
+.contact-page {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8fafc;
+  min-height: 100vh;
+  padding-bottom: 4rem;
+}
+
+/* --- Hero Section --- */
+.contact-hero {
+  background-color: #0f172a; /* Dark Navy */
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem 6rem 1rem; /* Extra padding bottom for overlap effect */
+}
+
+.contact-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-hero p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* Emergency Banner */
+.emergency-banner {
+  background: #fee2e2;
+  color: #991b1b;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  border: 1px solid #fecaca;
+}
+
+.emergency-banner a {
+  color: #dc2626;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* --- Main Container --- */
+.contact-container {
+  max-width: 1100px;
+  margin: -4rem auto 0 auto; /* Pulls content up over the hero */
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* Info takes less space than Form */
+  gap: 2rem;
+}
+
+/* --- Left Column: Info Cards --- */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.info-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.icon-circle {
+  background: #eff6ff;
+  color: #2563eb;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #1e293b;
+  font-size: 1.1rem;
+}
+
+.label {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0 0 0.2rem 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.mt-2 { margin-top: 1rem; }
+
+.contact-link {
+  display: block;
+  font-size: 1.1rem;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-link.emergency {
+  color: #ef4444; /* Red for emergency */
+  font-weight: 700;
+}
+
+.address {
+  color: #334155;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.map-placeholder img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 0.8;
+}
+
+/* --- Right Column: Form --- */
+.contact-form-wrapper {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+  height: fit-content;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.form-header h2 { margin: 0; color: #1e293b; }
+.text-primary { color: #2563eb; }
+
+.form-desc {
+  color: #64748b;
+  margin-bottom: 2rem;
+}
+
+.form-group { margin-bottom: 1.25rem; }
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f8fafc;
+  font-family: inherit;
+  box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.btn-send {
+  width: 100%;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.2s;
+}
+
+.btn-send:hover {
+  background: #1d4ed8;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr; /* Stack vertically on mobile */
+    margin-top: -2rem;
+  }
+  
+  .contact-hero {
+    padding-bottom: 4rem;
+  }
+
+  .info-card {
+    padding: 1.5rem;
+  }
+}

@@ -1,0 +1,184 @@
+/* --- Page Layout --- */
+.hiw-page {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8fafc;
+  min-height: 100vh;
+  padding-bottom: 5rem;
+}
+
+/* --- Hero --- */
+.hiw-hero {
+  background-color: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.hiw-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.hiw-hero p { color: #94a3b8; font-size: 1.1rem; }
+
+/* --- Container --- */
+.hiw-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* --- Phase 1: Vertical Steps --- */
+.phase-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+/* The vertical line running down the middle */
+.phase-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #cbd5e1;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.step-card {
+  position: relative;
+  width: 45%;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+/* Alternate Left and Right alignment */
+.step-card { align-self: flex-start; }
+.step-card.right { align-self: flex-end; }
+
+/* The circle number */
+.step-number {
+  position: absolute;
+  top: 20px;
+  right: -65px; /* Positions it on the center line */
+  width: 40px;
+  height: 40px;
+  background: #2563eb;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border: 4px solid #f8fafc;
+}
+
+.step-card.right .step-number {
+  right: auto;
+  left: -65px;
+}
+
+.step-content h3 { margin: 1rem 0 0.5rem 0; color: #1e293b; }
+.step-content p { color: #64748b; line-height: 1.5; font-size: 0.95rem; }
+.highlight { color: #2563eb; font-weight: 600; }
+
+.icon-box {
+  width: 60px; height: 60px;
+  background: #eff6ff; color: #2563eb;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+}
+.icon-box.success { background: #ecfdf5; color: #059669; }
+
+/* --- Phase 2: Split Fork Section --- */
+.fork-section { text-align: center; margin: 5rem 0; }
+.fork-section h2 { font-size: 2rem; color: #1e293b; margin-bottom: 2rem; }
+
+.paths-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+}
+
+.path-card {
+  flex: 1;
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  transition: transform 0.2s;
+}
+.path-card:hover { transform: translateY(-5px); border-color: #93c5fd; }
+
+.path-card.software { border-top: 4px solid #2563eb; }
+.path-card.hardware { border-top: 4px solid #f59e0b; }
+
+.path-icon { margin-bottom: 1rem; color: #334155; }
+.sub-text { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+.path-steps {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #475569;
+}
+.path-steps li { margin-bottom: 0.8rem; padding-left: 10px; border-left: 2px solid #e2e8f0; }
+
+.badge-remote, .badge-onsite {
+  position: absolute;
+  top: -15px; left: 50%; transform: translateX(-50%);
+  padding: 5px 15px; border-radius: 20px;
+  font-size: 0.8rem; font-weight: 700;
+  display: flex; gap: 5px; align-items: center;
+  background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.badge-remote { color: #2563eb; }
+.badge-onsite { color: #f59e0b; }
+
+.divider-text {
+  display: flex; align-items: center;
+  font-weight: 700; color: #cbd5e1;
+}
+
+/* --- Final Phase --- */
+.step-card.final {
+  width: 100%; /* Full width for the last step */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step-card.final .step-number {
+  top: -20px; right: 50%; transform: translateX(50%);
+}
+
+.btn-cta {
+  margin-top: 2rem;
+  background: #2563eb; color: white;
+  border: none; padding: 14px 28px;
+  border-radius: 8px; font-weight: 600; font-size: 1rem;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 10px;
+  transition: background 0.2s;
+}
+.btn-cta:hover { background: #1d4ed8; }
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+  .phase-line { left: 20px; } /* Move line to left */
+  .step-card, .step-card.right { width: calc(100% - 60px); align-self: flex-end; }
+  
+  .step-number, .step-card.right .step-number {
+    left: -55px; right: auto;
+  }
+  
+  .paths-container { flex-direction: column; }
+  .divider-text { margin: 1rem 0; justify-content: center; }
+}
