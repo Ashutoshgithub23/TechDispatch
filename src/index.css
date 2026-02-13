@@ -1,6 +1,16 @@
 
 
-.h1{
+/* Note: Target 'h1' directly (the tag), not '.h1' (the class), unless you specifically use <h1 className="h1"> */
+h1, .h1 {
+  /* 1. Responsive Size: Min 32px, Pref 5% screen, Max 64px */
+  font-size: clamp(2rem, 5vw, 4rem); 
+
+  /* 2. Your Font Settings */
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: red;
+  color: red; /* Kept your color */
+  
+  /* 3. Recommended Layout Fixes */
+  line-height: 1.1;       /* Prevents huge gaps between lines when text wraps */
+  margin-bottom: 1rem;    /* Adds space below the title */
+  text-align: center;     /* Optional: Looks better on mobile */
 }
