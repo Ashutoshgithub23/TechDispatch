@@ -9,30 +9,40 @@ import OurEngineers from './OurEngineers';
 import ContactPage from './ContactPage';
 import HowItWorks from './HowItWorks';
 import BlogPage from './BlogPage';
-import ServicesPage from './ServicesPage'; // 1. Import the Services Page
+import ServicesPage from './ServicesPage';
 
-// Import the Footer Component
+// Import Helper Components
+import ScrollToTop from './ScrollToTop'; // Make sure this path is correct!
 import Footer from './Footer';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    {/* Wrap everything in a div to keep layout clean */}
-    <div className="app-container">
-      {/* The Routes determine the main content of the page */}
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/book-engineer" element={<BookEngineer />} />
-        <Route path="/our-engineers" element={<OurEngineers />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/how-it-works" element={<HowItWorks />} />
-        <Route path="/blog" element={<BlogPage />} />
-        {/* 2. Add the Services Route */}
-        <Route path="/services" element={<ServicesPage />} />
-      </Routes>
-
-      {/* Place Footer here (Outside Routes) so it shows on every page */}
-      <Footer />
+// Define the Main App Component
+const App = () => {
+  return (
+    <BrowserRouter>
+      {/* 1. ScrollToTop must be inside BrowserRouter */}
+      <ScrollToTop />
       
-    </div>
-  </BrowserRouter>
+      <div className="app-container">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/book-engineer" element={<BookEngineer />} />
+          <Route path="/our-engineers" element={<OurEngineers />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/how-it-works" element={<HowItWorks />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+        </Routes>
+      </div>
+
+      {/* 2. Footer is outside Routes but inside Router (correct) */}
+      <Footer />
+    </BrowserRouter>
+  );
+};
+
+// Render the App
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
