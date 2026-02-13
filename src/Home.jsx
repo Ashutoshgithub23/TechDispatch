@@ -69,7 +69,7 @@ const HomePage = () => {
  
         <div className="hero-image">
           <div className="image-placeholder">
-            <img src="/src/assets/5173528.jpg" alt="IT Engineer working on server" />
+            <img src="/5173528.jpg" alt="IT Engineer working on server" />
           </div>
         </div>
       </header>
