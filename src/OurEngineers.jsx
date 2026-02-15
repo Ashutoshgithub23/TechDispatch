@@ -8,76 +8,76 @@ import {
   MapPin,
   Filter
 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom'; // Assuming you use Router
+import { useNavigate } from 'react-router-dom';
 import './OurEngineers.css';
 
-// --- Mock Data (Replace with API call later) ---
+// --- Engineer Data with Indian Names ---
 const engineersData = [
   {
     id: 1,
-    name: "Rahul Sharma",
+    name: "Arjun Mehta",
     role: "Senior Network Architect",
     category: "Network",
     rating: 4.9,
     jobsCompleted: 142,
     location: "Mumbai / Remote",
     certs: ["Cisco CCNP", "AWS Certified", "CompTIA Network+"],
-    image: "/api/placeholder/150/150" // Replace with real image
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" 
   },
   {
     id: 2,
-    name: "Sarah Jenkins",
+    name: "Priya Sharma",
     role: "Hardware Repair Specialist",
     category: "Hardware",
     rating: 5.0,
     jobsCompleted: 89,
     location: "New Delhi (On-Site)",
     certs: ["Apple Certified Mac Tech", "CompTIA A+", "Dell OEM"],
-    image: "/api/placeholder/150/150"
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80"
   },
   {
     id: 3,
-    name: "David Chen",
+    name: "Vikram Singh",
     role: "Cybersecurity Analyst",
     category: "Software",
     rating: 4.8,
     jobsCompleted: 56,
     location: "Remote Only",
     certs: ["CISSP", "Ethical Hacker (CEH)", "Microsoft Azure"],
-    image: "/api/placeholder/150/150"
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80"
   },
   {
     id: 4,
-    name: "Priya Patel",
+    name: "Anjali Patel",
     role: "Desktop Support Lead",
     category: "Hardware",
     rating: 4.9,
     jobsCompleted: 210,
     location: "Bangalore (On-Site)",
     certs: ["Microsoft Modern Desktop", "ITIL v4", "HP ExpertOne"],
-    image: "/api/placeholder/150/150"
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80"
   },
   {
     id: 5,
-    name: "Michael Ross",
+    name: "Rohan Das",
     role: "Cloud Infrastructure Eng.",
     category: "Software",
     rating: 4.7,
     jobsCompleted: 34,
     location: "Remote Only",
     certs: ["Google Cloud Pro", "Docker Certified", "Kubernetes"],
-    image: "/api/placeholder/150/150"
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80"
   },
   {
     id: 6,
-    name: "Anita Roy",
+    name: "Sneha Reddy",
     role: "Server Maintenance Tech",
     category: "Network",
     rating: 4.9,
     jobsCompleted: 112,
     location: "Pune (On-Site)",
     certs: ["Windows Server Hybrid", "Linux Essentials", "VMware VCP"],
-    image: "/api/placeholder/150/150"
+    image: "https://images.unsplash.com/photo-1598550874175-4d7112ee7f38?auto=format&fit=crop&w=150&q=80"
   }
 ];
 
@@ -91,7 +91,6 @@ const OurEngineers = () => {
     : engineersData.filter(eng => eng.category === filter);
 
   const handleBookClick = () => {
-    // Redirect to the booking wizard
     navigate('/book-engineer'); 
   };
 

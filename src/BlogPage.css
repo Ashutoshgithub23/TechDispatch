@@ -72,6 +72,7 @@
   color: #64748b;
   font-weight: 500;
   transition: all 0.2s;
+  font-size: 0.9rem;
 }
 
 .cat-btn:hover { background: #f1f5f9; color: #334155; }
@@ -85,7 +86,7 @@
 /* --- Grid Layout --- */
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
 }
 
@@ -95,10 +96,11 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
   border: 1px solid #f1f5f9;
   display: flex;
   flex-direction: column;
+  height: 100%; /* Ensure cards are same height */
 }
 
 .post-card:hover {
@@ -109,7 +111,7 @@
 /* Card Image Area */
 .card-image {
   height: 200px;
-  background-color: #cbd5e1; /* Placeholder grey */
+  background-color: #cbd5e1;
   position: relative;
 }
 
@@ -119,40 +121,36 @@
   object-fit: cover;
 }
 
+/* Universal Category Badge */
 .cat-badge {
   position: absolute;
   top: 12px;
   right: 12px;
-  background: rgba(0,0,0,0.7);
+  background: rgba(37, 99, 235, 0.9); /* Primary Blue with transparency */
   color: white;
-  padding: 4px 10px;
-  border-radius: 4px;
+  padding: 4px 12px;
+  border-radius: 20px;
   font-size: 0.75rem;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
 }
-
-/* Category Colors */
-.cat-badge.troubleshooting { background: #dc2626; } /* Red */
-.cat-badge.hardware { background: #d97706; } /* Orange */
-.cat-badge.software { background: #2563eb; } /* Blue */
-.cat-badge.news { background: #059669; } /* Green */
 
 /* Card Content */
 .card-content {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  flex-grow: 1; /* Fills remaining space */
 }
 
 .meta-row {
   display: flex;
-  gap: 15px;
+  justify-content: space-between; /* Space out Date and Author */
   font-size: 0.8rem;
   color: #94a3b8;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .meta-row span { display: flex; align-items: center; gap: 5px; }
@@ -162,6 +160,7 @@
   color: #1e293b;
   font-size: 1.25rem;
   line-height: 1.4;
+  font-weight: 700;
 }
 
 .card-content p {
@@ -169,34 +168,43 @@
   font-size: 0.95rem;
   line-height: 1.6;
   margin: 0 0 1.5rem 0;
-  flex-grow: 1; /* Pushes button down */
+  flex-grow: 1; /* Pushes the button to the bottom */
 }
 
-.read-more {
-  background: none;
-  border: none;
-  color: #2563eb;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0;
-  display: flex;
+/* --- New Link Styling (Replaces .read-more button) --- */
+.card-actions {
+  margin-top: auto; /* Ensures button sticks to bottom */
+}
+
+.read-more-link {
+  display: inline-flex;
   align-items: center;
-  gap: 5px;
-  align-self: flex-start;
+  gap: 0.5rem;
+  color: #2563eb; /* Primary Blue */
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
 }
 
-.read-more:hover { gap: 8px; /* Slight animation */ }
+.read-more-link:hover {
+  color: #1e40af; /* Darker Blue */
+  gap: 0.8rem; /* Slide animation */
+}
 
 /* No Results */
 .no-results {
   grid-column: 1 / -1;
   text-align: center;
-  padding: 3rem;
+  padding: 4rem 2rem;
   color: #64748b;
 }
+
+.no-results h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #1e293b; }
 
 /* Mobile */
 @media (max-width: 600px) {
   .search-wrapper input { font-size: 0.9rem; }
   .blog-hero h1 { font-size: 2rem; }
+  .posts-grid { grid-template-columns: 1fr; } /* Stack cards on phone */
 }
